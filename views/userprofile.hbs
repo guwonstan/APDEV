@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="../static/cssFiles/profile_style.css">
+<link rel="stylesheet" href="../static/cssFiles/sitebanner.css">
+
+<!-- profile.hbs -->
+
+<div class="profile_header">
+    <img class="profile_picture" src={{concat "../static/images/" userData.username "_pfp.jpg"}}>
+    <div class="profile_rows_container">
+        <div class="profile_username">
+            {{ userData.username }}
+        </div>
+        <div class="profile_bio">
+            {{ userData.bio }}
+        </div>
+    </div>
+    <input class="edit_button" type="image" src="../static/images/bxs-edit-alt.png" onclick="editProfile()"></input>
+</div>
+
+<div class="profile_body">
+    {{ userData.username }}'s Reviews
+    {{#each reviews}}
+    <div class="profile_review" id="User1ProfRev1">
+        <div class="review_header">
+            <div class="review_header_row2">
+                <a class="review_establishment" href="">{{ userData.establishment }}</a>
+                <div class="rating">
+                   {{ userData.reviewRating }}
+                </div>
+                <div class="grow"></div>
+                <input class="delete_button" type="image" src="../static/images/trash-solid-30.png" onclick="deleteReview()"></input>
+                <input class="edit_button" type="image" src="../static/images/bxs-edit-alt.png" onclick="editReview(this)"></input>
+            </div>
+            <div class="review_title">{{ userData.reviewTitle }}</div>
+        </div>
+        <div class="review_body" id="reviewBody">
+            {{ userData.reviewContent }}
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+
+

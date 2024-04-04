@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="../static/cssFiles/registerStyles.css">
+<div class="container">
+      <form id="registration" action="/register" method="post">
+        <h2>Register</h2>
+        <div class="input-box">
+          <span class="icon">
+            <ion-icon name="person-outline"></ion-icon>
+          </span>
+          <input type="text" id="username" name="username" required />
+          <label for="username">Username</label>
+        </div>
+        <div class="input-box">
+          <span class="icon">
+            <ion-icon name="lock-closed-outline"></ion-icon>
+          </span>
+          <input type="password" id="password" name="password" required />
+          <label for="password">Password</label>
+        </div>
+        <div class="show-password">
+          <input type="checkbox" id="show-password" />
+          <label for="show-password">Show Password</label>
+        </div>
+        <div class="input-avatar-description">
+          <label for="avatar">Avatar:</label>
+          <br />  
+          <input type="file" id="avatar" name="avatar" accept ="image/*"required/>
+        </div>
+        <div class="input-avatar-description">
+          <label for="description">Description:</label>
+          <textarea id="description" name="description" rows="3" placeholder="Add a short bio to tell people more about yourself."></textarea>
+        </div>
+        <button type="submit">Register</button>
+        <div class="loginPage">
+          <p>Already have an account?</p>
+          <div class="loginImage">
+            <a href="/login"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAMlJREFUSEvdlTEKwkAQRV/OIQhiobcRvIatjTfQM+g5PIO1jZ0oCN7BRvmQLVwW8zdsMGTb/PlvdmY2U9HxqTr2pzeABbAF5saNL8AaOErr3uABjAzzILkC0xzAu450EvrSOgHyHh5gD6yAV6IvrUoU+8jkBCyBZ/SxGEC+MhdEsHAaAUHgTqXKpHId6oD/A5zMQ5atSuQCijY5fmjFx3R4L/lXnxrHNBV8B8ZO92vNDZjk/K61cHbAzICcgU3uwjF80xJ3H/QX8AGSLjYZ0H53zgAAAABJRU5ErkJggg=="/></a>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script src="../static/jsFiles/reg_login.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

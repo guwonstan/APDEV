@@ -1,0 +1,52 @@
+    <link rel="stylesheet" href="../cssFiles/profile_style.css">
+    <link rel="stylesheet" href="../cssFiles/edit_profile_style.css">
+    <link rel="stylesheet" href="../cssFiles/sitebanner.css">
+
+
+
+    <div class="profile_header">
+        <img class="profile_picture" src="../images/Profile1_pfp.jfif">
+        <div class="profile_rows_container">
+            <div class="profile_username">
+                {{ username }} 
+            </div>
+            <div class="profile_bio">
+                {{ bio }} 
+            </div>
+        </div>
+    </div>
+
+    <div class="profile_body">
+        <div class="edit_area">
+            <div class="edit_pfp">
+                <label for="imageUpload">Choose a new profile picture:</label><br>
+                <input type="file" id="imageUpload" name="imageUpload" accept="image/*">
+                <button type="submit" onclick="updatePfp()">Upload</button>
+            </div>
+            <div class="edit_bio">
+                <textarea id="bioTextArea">{{ bio }}</textarea> 
+                <button onclick="updateBio()">Update Bio</button>
+            </div>
+            <button onclick="cancel()">Cancel and Discard Changes</button>
+        </div>
+    </div>
+    
+    <script>
+        window.onload = function() {
+            const defaultBioContent = sessionStorage.getItem('bioContent');
+            document.getElementById('bioTextArea').value = defaultBioContent;
+        };
+        function updateBio() {
+            const updatedBioContent = document.getElementById('bioTextArea').value;
+            sessionStorage.setItem('updatedBioContent', updatedBioContent);
+            window.location.href = "../UnregisteredViews/User_Profile_Guwonie.html";
+        }
+        function updatePfp() {
+            const updatedPfp = document.getElementById('imageUpload').value;
+            sessionStorage.setItem('updatedBioContent', updatedBioContent);
+            window.location.href = "../UnregisteredViews/User_Profile_Guwonie.html";
+        }
+        function cancel() {
+            window.location.href = "../UnregisteredViews/User_Profile_Guwonie.html";
+        }
+    </script>

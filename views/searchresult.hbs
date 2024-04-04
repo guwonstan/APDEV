@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="../static/cssFiles/frontpage.css" />
+
+
+<div class="searchwindow">
+    <div class= "searchhead">
+        <h1>Search results for {{query}}</h1>  
+    </div>
+  <div class="oneestab">
+    {{#each establishments}}
+      {{#ifEquals query this.establishment}}
+        {{> oneestab}}
+      {{/ifEquals}}
+    {{/each}}
+    </div>
+</div>

@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+
+:root {
+  font-family: 'Fredoka', sans-serif;
+  background-color: transparent;
+  background-image: url(../images/frontpagebg.jpg);
+  backdrop-filter: blur(100px);
+  color:white;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 25%;
+  margin: 50px auto; 
+  background-color: transparent;
+  backdrop-filter: blur(60px); 
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.151);
+}
+
+
+.create-review{
+
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #cce9fb;
+  border-radius: 10px;
+
+}
+
+.create-review h2{
+
+  text-align: center;
+  
+}
+
+.title{
+
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+}
+
+
+.title-input{
+
+  display:flex;
+  padding: 20px;
+  flex-direction: column;
+  
+}
+
+
+.body{
+
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  
+}
+
+.body-input{
+
+  display:flex;
+  padding: 20px;
+  flex-direction: column;
+  width: 500px;
+
+
+}
+
+#title{
+
+  font-family: "Fredoka", sans-serif;
+  
+}
+
+#body{
+  
+  font-family: "Fredoka", sans-serif;
+  height: 250px;
+
+}
+
+.file-input{
+
+  display:flex;
+  padding: 20px;
+  flex-direction: column;
+  width: 500px;
+
+
+}
+
+.rating-input{
+
+  display:flex;
+  padding: 20px;
+  flex-direction: column;
+  width: 30px;
+
+
+}
+
+.submit-button{
+
+  
+  display:flex;
+  padding: 20px;
+  flex-direction: column;
+  background-color: #cce9fb;
+
+}
+
+
+.text-margin{
+
+  margin-bottom: 10px;
+
+}
+
+
+
+
+#log-in {
+    max-width: 400px;
+    margin: 50px auto; 
+}
+
+#log-in h2 {
+    font-weight: lighter;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-box {
+    width: 100%;
+    position:relative;
+    margin-bottom: 20px;
+    border-bottom: 2px solid white;
+    margin: 30px 0;
+}
+
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box .icon {
+    position: absolute;
+    line-height:45px;
+    right: 8px;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+
+
+#log-in button  {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#log-in button:hover {
+    background-color: rgb(188, 188, 188);
+}
+
+
+
+#log-in input[type="text"] {
+    font-family: 'Fredoka', sans-serif;
+    color: white;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+    outline: none;    
+    resize: none;
+
+}
+
+
+#log-in textarea {
+
+  font-family: 'Fredoka', sans-serif;
+  height: 100px;
+  width: 95%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  outline: none;    
+  resize: none;
+  margin-top: 8px;
+
+}
+
+#log-in input[type="file"] {
+
+  margin-top: 8px;
+
+}
+
+.input-body {
+  
+  width: 100%;
+  position:relative;
+  margin-bottom: 20px;
+  border-bottom: 2px solid white;
+  margin: 30px 0;
+    
+}
+
+.input-file {
+
+  width: 100%;
+  position:relative;
+  margin-bottom: 20px;
+  border-bottom: 2px solid white;
+  margin: 30px 0;
+  
+}
+
+.input-rating {
+
+  width: 100%;
+  position:relative;
+  margin-bottom: 20px;
+  border-bottom: 2px solid white;
+  margin: 30px 0;
+  text-align: center;
+}
+
+.input-rating input{
+
+  display: none;
+
+}
+
+
+.input-rating input + label{
+
+  font-size: 25px;
+  cursor: pointer;
+
+}
+
+.input-rating input:checked + label ~ label {
+  
+  color: #838383;
+
+}
+
+.input-rating label:active{
+
+  transform: scale(0.8);
+  transition: 0.3 ease;
+}
+
+.star {
+
+  color: gold; /* Color of the stars */
+
+}

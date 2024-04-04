@@ -1,0 +1,25 @@
+<div class="onereview">
+  <div class="onerevpic">
+    <img src={{concat username "_pfp.jpg"}} id="picwidth30" />
+  </div>
+  <div class="onerevtext">
+    <div id="onerevheader">
+      <div id="onerevline">
+        <h1>{{reviewTitle}}</h1>
+      </div>
+      <div id="onerevrate">
+        <h1>{{reviewRating}}/5</h1>
+      </div>
+    </div>
+    <a id="greenlight" href={{concat "/u/" username}}>{{username}}</a>
+    <p>{{reviewContent}}</p>
+  </div>
+  {{#each responses}}
+    {{#each reviews}}
+      {{#ifEquals responseTitle this.reviewTitle}}
+        {{> ownerresponse}}
+      {{/ifEquals}}
+    {{/each}}
+  {{/each}}
+
+</div>

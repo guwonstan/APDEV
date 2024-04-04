@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap");
+
+:root {
+  font-family: "Fredoka", sans-serif;
+  font-size: 16px;
+  background-color: rgb(255, 255, 255);
+  background-image: url(/images/frontpagebg.jpg);
+}
+
+a:hover#oneestab {
+  color: rgb(36, 87, 131);
+}
+
+img.estab_logo {
+  width: 110px;
+  float: left;
+  border-radius: 20%;
+  margin-right: 5%;
+  margin-left: 20px;
+  border-color: white;
+}
+
+.allestab {
+  padding: 70px 10px;
+  background-color: rgba(187, 182, 180, 0.651);
+}
+
+.searchwindow{
+  padding: 70x 10px;
+  background-color: rgba(187, 182, 180, 0.651);
+  display: flex;
+  flex-direction: column;
+}
+
+.searchhead{
+  color: green;
+  font-size: larger;
+}
+
+.oneestab {
+  padding: 10px 10px;
+  margin-bottom: 1%;
+  background-color: rgb(7, 51, 9);
+  margin-inline: 20%;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px #191b1d;
+  text-align: center;
+  color: white;
+  opacity: 100%;
+}
+
+#oneestab {
+  color: rgb(213, 243, 226);
+}
+
+.estabdeets {
+  padding: 0px 30%;
+  text-align: left;
+}
+
+.establishmentdetails {
+  display: flex;
+  flex-direction: row;
+  padding: 20px 20px;
+  background-color: rgba(187, 182, 180, 0.651);
+  color: white;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.establishmentinfo {
+  width: 30%;
+  background-color: rgb(7, 51, 9);
+  border-radius: 30px;
+  padding-inline: 1%;
+  margin-right: 1%;
+  text-align: center;
+}
+
+.establishmentreviews {
+  width: 40%;
+  background-color: rgb(7, 51, 9);
+  border-radius: 30px;
+  padding-inline: 1%;
+  margin-right: 1%;
+}
+
+.establishmentlocation {
+  width: 30%;
+  background-color: rgb(7, 51, 9);
+  border-radius: 30px;
+  padding-inline: 1%;
+}
+
+.onereview {
+  display: flex;
+  flex-direction: row;
+  background-color: gray;
+  border-radius: 25px;
+  justify-content: space-between;
+  margin-bottom: 2%;
+}
+
+#estabdeetspics {
+  width: 100%;
+  border-radius: 30px;
+}
+
+#estabdeetsheader {
+  font-size: xx-large;
+}
+
+#onerevheader {
+  display: flex;
+  flex-direction: row;
+  font-size: large;
+  text-decoration-line: underline;
+}
+
+.onerevpic {
+  padding-block: 1%;
+  padding-inline: 1%;
+  width: 30%;
+}
+
+#picwidth30 {
+  width: 100%;
+}
+
+.onerevtext {
+  width: 70%;
+}
+
+#greenlight {
+  color: lightgreen;
+}
+a:hover#greenlight{
+    color: rgb(36, 87, 131);
+}
+
+#onerevrate {
+  margin-left: 2%;
+}
+
+#onerevline{
+    width: 60%;
+}

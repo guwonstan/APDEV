@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="../static/cssFiles/sitebanner.css" />
+<div class="sitebanner">
+      <a href="/">
+        <img
+          src="../static/images/nigelreviews.gif"
+          class="big_logo"
+          alt="Nigel Reviews Logo"
+        />
+        </a>
+      <p class="sitebanner_tagline">Review with Nigel, for Nigel, and by Nigel</p>
+      <div id="search">
+        <form>
+          <label for="query">Search Establishments:</label><br />
+          <input type="text" id="query" name="query" /><br />
+          <input type="submit" />
+        </form>
+      </div>
+      <img class="profile-pic" src={{concat "../static/images/" username "_pfp.jpg"}} width="60">
+      <a id="loginreg" href={{concat "/userprofile/users/"username}}>
+    
+        <h1>My Profile</h1>
+      </a>
+      <a id="loginreg" href="/logout"> 
+        <h1 id="login">Logout</h1>
+      </a>
+</div>
+

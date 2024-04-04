@@ -1,0 +1,91 @@
+
+
+img.big_logo{
+    flex-shrink: 50;
+    width: 200px;
+
+}
+
+.sitebanner{
+
+    background-color: #aceec0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    box-sizing: border-box;
+    padding-right: 10px;
+    
+}
+
+#search{
+    margin-right: 20px;
+    color:black;
+
+}
+
+input[type=text]{
+    border-radius: 30px;
+
+}
+
+input[type=submit]{
+    background-color: green;
+    color: white;
+}
+
+
+.sitebanner p{
+
+   color: black;
+   font-style: italic;
+}
+
+.sitebanner h1{
+
+    background-color:  rgb(7, 51, 9);;
+ 
+ }
+
+ .sitebanner a{
+
+    text-decoration: none;
+    
+ }
+
+
+
+.sitebanner_tagline{
+    font-weight: lighter;
+    font-size: large;
+    width: max-content;
+    flex-grow: 50;
+    font-style: italic;
+}
+
+.sitebanner_space{
+    flex-grow: 1;
+    
+    
+}
+
+#loginreg{
+    display: flex;
+    justify-content: space-around;
+    padding-inline: 20px;
+    margin-left: 10px;
+
+    flex-grow: 0;
+    color: white;
+    border-radius: 5cqh;
+    background-color: rgb(7, 51, 9);
+    font-size: small;
+}
+
+
+.profile-pic{
+
+    border-radius: 50%;
+    
+}

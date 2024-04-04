@@ -1,0 +1,77 @@
+
+<div class="oneestab">
+    <div class="estabdeets">
+      <img src={{imagepath}} class="estab_logo" alt={{alttext}} />
+      <a id="oneestab" href="/establishment1">
+        <h1 class="estabname">Ate Rica's Bacsilog at RL Building</h1>
+      </a>
+    </div>
+    <h1 class="estabrating">9.9/5</h1>
+    <a id="oneestab" href="/establishment1">
+      <h2 class="estabreviews">View Reviews</h2>
+    </a>
+    <p class="estabdesc">
+      Ate Rica's Bacsilog is your top bacsilog supplier for all your bacsi
+      needs! Visit us at RL Lobby
+    </p>
+  </div>
+
+  <div class="oneestab">
+    <div class="estabdeets">
+      <img
+        src="static/images/establishment2.jpg"
+        class="estab_logo"
+        alt="Intensitea Blends Logo"
+      />
+
+      <h1 class="estabname">Intensitea Blends at RL Building</h1>
+    </div>
+    <h1 class="estabrating">4.5/5</h1>
+    <a id="twoestab" href="/establishment2">
+      <h2 class="estabreviews">View Reviews</h2>
+    </a>
+    <p class="estabdesc">
+      From fruit teas to milk teas (and even coffee!) We got it all for you!
+      Located at Archer's Kitcher, RL Lobby
+    </p>
+  </div>
+  <div class="oneestab">
+    <div class="estabdeets">
+      <img
+        src="static/images/establishment3.jpg"
+        class="estab_logo"
+        alt="Dimsum Republic Logo"
+      />
+
+      <h1 class="estabname">Dimsum Republic at RL Building</h1>
+
+    </div>
+    <h1 class="estabrating">4.0/5</h1>
+    <a id="threeestab" href="/establishment3">
+      <h2 class="estabreviews">View Reviews</h2>
+    </a>
+    <p class="estabdesc">
+      Dimsum Republic is here to give you all of your Chinese-style cuisine
+      cravings!
+    </p>
+  </div>
+  <div class="oneestab">
+    <div class="estabdeets">
+      <img
+        src="static/images/establishment4.png"
+        class="estab_logo"
+        alt="Courtyard Hall Cafeteria"
+      />
+
+      <h1 class="estabname">Cafeteria at Courtyard Hall</h1>
+
+    </div>
+    <h1 class="estabrating">5/5</h1>
+    <a id="fourestab" href="/establishment4">
+      <h2 class="estabreviews">View Reviews</h2>
+    </a>
+    <p class="estabdesc">
+      Your newest cafeteria is in town! Visit us at Courtyard Hall and enjoy our
+      wide array of dishes!
+    </p>
+  </div>
