@@ -1,0 +1,27 @@
+<div class="establishmentdetails">
+
+  <div class="establishmentinfo">
+    <a id="greenlight" href={{estabData.establishmentURL}}>
+    <h1 id="estabdeetsheader">{{title}}</h1>
+    <img src={{estabData.establishmentIMG}} id="estabdeetspics" />
+    </a>
+    
+    <h2>{{establishmentDescription}}</h2>
+  </div>
+
+  <div class="establishmentreviews">
+    <h1 id="estabdeetsheader">Top Reviews</h1>
+    {{#each reviews}}
+        {{> review}}
+    {{/each}}
+
+
+  </div>
+
+  <div class="establishmentlocation">
+    <h1 id="estabdeetsheader">Location</h1>
+    <img src="../static/images/map.png" id="estabdeetspics" />
+    <h2>LTI Spine Rd., Laguna Blvd., Brgy's Malamig & Binan, Binan, Laguna</h2>
+  </div>
+  
+</div>

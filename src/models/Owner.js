@@ -1,8 +1,14 @@
 import { SchemaTypes, Schema, model } from 'mongoose';
 
 const ownerSchema = new Schema({
+    username: {
+        type: SchemaTypes.String,
+        required: true,
+        unique: true
+    },
     establishment: {
         type: SchemaTypes.String,
+        ref: 'Establishment',
         required: true,
         unique: true
     },

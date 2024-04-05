@@ -3,12 +3,12 @@ import { SchemaTypes, Schema, model } from 'mongoose'; // ES6 syntax
 
 const postSchema = new Schema({
     username: {
-        type: SchemaTypes.ObjectId,
+        type: SchemaTypes.String,
         ref: 'User',
         required: true
     },
     establishment: {
-        type: SchemaTypes.ObjectId,
+        type: SchemaTypes.String,
         ref: 'Establishment',
         required: true
     },

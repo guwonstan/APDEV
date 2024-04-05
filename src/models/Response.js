@@ -1,18 +1,17 @@
 import { SchemaTypes, Schema, model } from 'mongoose';
 
 const responseSchema = new Schema({
-    review: {
-        type: SchemaTypes.ObjectId,
-        ref: 'Review',
+    reviewTitle: {
+        type: SchemaTypes.String,
         required: true
     },
-    response: {
+    responseContent: {
         type: SchemaTypes.String,
         required: true
     }
 });
 
-const Response = model('Review', responseSchema); // posts collection 
+const Response = model('Response', responseSchema); // posts collection 
 
 export default Response;
 // module.exports = Post;
