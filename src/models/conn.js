@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import "dotenv/config"
 
 const mongoURI = process.env.MONGODB_URI;
 
@@ -7,7 +8,7 @@ const mongoURI = process.env.MONGODB_URI;
  * @returns A Promise which resolves to the client object
  */
 export function connectToMongo(dbName = process.env.DB_NAME) {
-    return mongoose.connect(mongoURI, {dbName: dbName});
+    return mongoose.connect(mongoURI, {dbName});
 };
 
 // These are just used for closing the connection properly
