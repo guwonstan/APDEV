@@ -14,7 +14,7 @@ import router from "./src/indexrouter.js";
 
 // Database modules
 import "dotenv/config";
-import { connectToMongo, signalHandler } from "./src/models/conn.js";
+//import { connectToMongo, signalHandler } from "./src/models/conn.js";
 import User from './src/models/User.js';
 import Owner from './src/models/Owner.js';
 import Establishment from './src/models/Establishment.js';
