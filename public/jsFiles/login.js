@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const usernameInputLogin = document.getElementById('username-login');
     const passwordInputLogin = document.getElementById('password-login');
     const showPasswordCheckboxLogin = document.getElementById('show-password-login');
+    const remember = document.getElementById('remember-me');
+    const remembered = remember.checked;
     
     // login form submission
     loginForm.addEventListener('submit', async function(event) {

@@ -132,7 +132,7 @@ router.post('/searchresult', async (req, res) => {
 
 router.post('/login', async(req, res) => {
     try {
-        const { username, password } = req.body;
+        const { username, password, remembered } = req.body;
         console.log(password);
         const user = await User.findOne({username: username}).lean().exec();
         if (!user) {
@@ -150,7 +150,10 @@ router.post('/login', async(req, res) => {
             }
         
             if (result) {
-                res.cookie('username', username, { maxAge: 86400000 });
+                if(remembered){
+                    res.cookie('username', username, { maxAge: 184000000 });
+                    req.session.remembered = true;
+                } 
                 req.session.username = username;
                 req.session.isLoggedIn = true;
                 console.log('Passwords match');
@@ -176,6 +179,7 @@ router.post('/login', async(req, res) => {
 router.get('/logout', (req, res) => {
     req.session.username = null;
     req.session.isLoggedIn = false;
+    req.session.remembered = false;
     res.clearCookie('username');
     res.redirect('/');
 });

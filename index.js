@@ -48,12 +48,14 @@ async function main() {
             req.session.username = req.cookies.username;
             req.session.isLoggedIn = true;
             console.log(req.session.username);
-        }else if (req.session){
-            console.log(req.session.username);
-            res.cookie('username', req.session.username, { maxAge: 86400000 });
+        } 
+        if (req.session){
+            console.log(req.session.remembered);
+            if(req.session.remembered == true){
+                res.cookie('username', req.session.username, { maxAge: 184000000 });
+            }
         }
         next();
-        
     };
     app.use(setUserSession);
     
@@ -67,6 +69,7 @@ async function main() {
         if (!req.session.isLoggedIn) {
             req.session.username = null;
             req.session.isLoggedIn = false;
+            req.session.remembered = false;
         }
         next();
     });
@@ -92,6 +95,10 @@ async function main() {
     // from this point onwards, we are going to receive json format data
     app.use(express.json());
     app.use(router);
+
+    
+    
+
 
     const storage = multer.diskStorage({
     destination: './public/images',
