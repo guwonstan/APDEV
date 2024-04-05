@@ -30,13 +30,18 @@ router.get("/users/:username", async(req, res) => {
         const username = req.params.username;
         const userData = await User.findOne({username: username}).lean().exec();
         const filteredReviews = await Review.find({username: username}).lean().exec();
+        var own = null;
+        if(req.session.username == username){
+            own = true;
+        }
 
 
         if(req.session.username == null){
             res.render("userprofile", { 
                 userData: userData, 
                 title: "User Profile",
-                reviews:filteredReviews
+                reviews:filteredReviews,
+                own: own
             });
 
         }else{
@@ -44,6 +49,7 @@ router.get("/users/:username", async(req, res) => {
                 userData: userData, 
                 title: "User Profile", 
                 reviews:filteredReviews,
+                own: own,
                 layout: 'loggedin', 
                 username:req.session.username
             });
@@ -128,6 +134,12 @@ router.post('/login', async(req, res) => {
         const { username, password } = req.body;
         console.log(password);
         const user = await User.findOne({username: username}).lean().exec();
+        if (!user) {
+            // User not found
+            res.status(404).json({});
+            console.log('User not found');
+            return;
+        }
         console.log('Found user:', user);
         bcrypt.compare(password, user.password, function(err, result) {
             if (err) {

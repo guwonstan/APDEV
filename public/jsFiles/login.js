@@ -27,14 +27,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert('Login successful!');
                 window.location.href = '/';
 
-            } else {
+            } else if (response.status == 404){
                 usernameInputLogin.value = '';
                 passwordInputLogin.value = '';
+                alert('Wrong Password')
                 location.reload();
             }
         } catch (error) {
             console.error('Error:', error);
-            alert('An error occurred during login.');
+            alert('User was not found');
             location.reload();
         }
     });

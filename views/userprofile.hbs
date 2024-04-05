@@ -24,8 +24,10 @@
                     {{ reviewRating }}
                     </div>
                     <div class="grow"></div>
-                    <input class="delete_button" type="image" src="../static/images/trash-solid-30.png" onclick="deleteReview()"></input>
-                    <input class="edit_button" type="image" src="../static/images/bxs-edit-alt.png" onclick="editReview(this)"></input>
+                    {{#if ../own}}
+                        <input class="delete_button" type="image" src="../static/images/trash-solid-30.png" onclick="deleteReview()"></input>
+                        <input class="edit_button" type="image" src="../static/images/bxs-edit-alt.png" onclick="editReview(this)"></input>
+                    {{/if}}
                 </div>
                 <div class="review_title">{{ reviewTitle }}</div>
             </div>

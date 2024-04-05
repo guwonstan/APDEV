@@ -1,6 +1,12 @@
 // copied from MCO Phase 1 (to be modified)
 
 
+editProfile.addEventListener("submit", async function(event){
+    event.preventDefault();
+    
+
+});
+
 function editProfile() {
   sessionStorage.setItem('bioContent', document.getElementsByClassName('profile_bio').textContent);
   window.location.href = "../UnregisteredViews/Edit_Profile_Guwonie.html";
