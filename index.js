@@ -32,7 +32,6 @@ async function main() {
     });
 
     app.listen(process.env.PORT, async function() {
-        console.log(`express app is now listening on port ${process.env.PORT}`);
         try {
             await connectToMongo();
             console.log(`Now connected to MongoDB`);
