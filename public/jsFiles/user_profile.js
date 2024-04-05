@@ -116,7 +116,7 @@ function deleteReview(button) {
   if (reviewContainer) {
       const confirmDelete = confirm("Are you sure you want to delete this review?");
       if (confirmDelete) {
-          reviewContainer.remove();
+          //delete request
           alert("Review deleted successfully.");
       } else {
           alert("Review deletion canceled.");

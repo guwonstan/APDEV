@@ -2,8 +2,8 @@ import { SchemaTypes, Schema, model } from 'mongoose';
 
 const establishmentSchema = new Schema({
     establishment: {
-        type: SchemaTypes.ObjectId,
-        ref: 'User',
+        type: SchemaTypes.String,
+        unique: true,
         required: true
     },
     establishmentRating: {
@@ -13,6 +13,14 @@ const establishmentSchema = new Schema({
         max: 5
     },
     establishmentDescription: {
+        type: SchemaTypes.String,
+        required: true
+    },
+    establishmentURL: {
+        type: SchemaTypes.String,
+        required: true
+    },
+    establishmentIMG: {
         type: SchemaTypes.String,
         required: true
     }

@@ -3,13 +3,13 @@
 
 <div class="searchwindow">
     <div class= "searchhead">
-        <h1>Search results for {{query}}</h1>  
+        <h1>Search results for {{query}}</h1>
     </div>
-  <div class="oneestab">
+</div>
+<div class="allestab">
+  {{#if establishments}}
     {{#each establishments}}
-      {{#ifEquals query this.establishment}}
-        {{> oneestab}}
-      {{/ifEquals}}
+      {{> oneestab}}
     {{/each}}
-    </div>
+  {{/if}}
 </div>

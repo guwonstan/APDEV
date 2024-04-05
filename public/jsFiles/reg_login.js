@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    let users = [];
 
     // registration elements
     const registrationForm = document.getElementById('registration');
@@ -18,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const showPasswordCheckboxLogin = document.getElementById('show-password-login');
 
     // registration form submission
-    registrationForm.addEventListener('submit', function(event) {
+    registrationForm.addEventListener('submit', async function(event) {
         event.preventDefault();
 
         const username = usernameInputReg.value.trim();
@@ -37,15 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        const newUser = {
-            username: username,
-            password: password,
-            description: description,
-            avatar: avatar
-        };
-
-        users.push(newUser);
-
         // this is just to clear inputs
         usernameInputReg.value = '';
         passwordInputReg.value = '';
@@ -53,31 +43,60 @@ document.addEventListener('DOMContentLoaded', function() {
         avatarInput.value = '';
         descriptionInput.value = '';
 
-        // for debugging only
-        console.log('New User Registered:');
-        console.log(newUser);
-        console.log('All Users:', users);
 
-        window.location.href = '../UnregisteredViews/login.html';
-    });
-
-    // login form submission
-    loginForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        const username = usernameInputLogin.value.trim().toLowerCase();
-        const password = passwordInputLogin.value.toLowerCase(); 
-        const user = users.find(user => user.username.toLowerCase() === username && user.password.toLowerCase() === password);
-        if (user) {
-            alert('Login successful!');
-
-            window.location.href = '../UnregisteredViews/Create_Review.html';
-        } else {
-            alert('Invalid username or password.');
-
-            passwordInputLogin.value = '';
+        try {
+            const formData = new FormData(registrationForm);
+            const jsObj = Object.fromEntries(formData);
+            const jString = JSON.stringify(jsObj);
+            const response = await fetch('/register', {
+                method: 'POST',
+                body: jString
+            });
+    
+            if (response.ok) {
+                alert('Registration successful!');
+                window.location.href = '/';
+            } else {
+                alert('Registration failed. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('An error occurred during registration.');
+            location.reload();
         }
     });
+
+    
+    // login form submission
+    loginForm.addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        const formData = new FormData(loginForm);
+        const jsObj = Object.fromEntries(formData);
+        const jString = JSON.stringify(jsObj);
+
+        try {
+            const response = await fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: jString
+            });
+
+            if (response.ok) {
+                alert('Login successful!');
+                window.location.href = '../UnregisteredViews/Create_Review.html';
+            } else {
+                passwordInputLogin.value = '';
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('An error occurred during login.');
+            location.reload();
+        }
+    });
+
 
     showPasswordCheckboxReg.addEventListener('change', function() {
         const passwordField = document.getElementById('password');

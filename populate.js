@@ -1,0 +1,162 @@
+// Import necessary modules
+import mongoose from 'mongoose';
+import Establishment from './src/models/Establishment.js';
+import Owner from './src/models/Owner.js';
+import Response from './src/models/Response.js';
+import Review from './src/models/Review.js';
+import User from './src/models/User.js';
+import bcrypt from 'bcrypt';
+
+// Connect to MongoDB
+mongoose.connect('mongodb://localhost:27017/', {dbName: "NigelReviews"});
+
+
+// Function to populate the database
+async function populateDatabase() {
+    try {
+        await Establishment.deleteMany().exec();
+
+        // Insert new establishments
+        await Establishment.create([
+            { establishment: "Ate Rica's Bacsilog", establishmentRating: "5.0", establishmentIMG: "../static/images/establishment1.jpg", establishmentDescription: "Ate Rica's Bacsilog is your top bacsilog supplier for all your bacsi needs! Visit us at RL Lobby <3", establishmentURL: "/establishment1" },
+            { establishment: "Intensitea Blends", establishmentRating: "3.5", establishmentIMG: "../static/images/establishment2.jpg", establishmentDescription: "From fruit teas to milk teas (and even coffee!) We got it all for you! Located at Archer's Kitcher, RL Lobby", establishmentURL: "/establishment2" },
+            { establishment: "Dimsum Republic", establishmentRating: "3.0", establishmentIMG: "../static/images/establishment3.jpg", establishmentDescription: "Dimsum Republic is here to give you all of your Chinese-style cuisine cravings!", establishmentURL: "/establishment3" },
+            { establishment: "Courtyard Cafeteria", establishmentRating: "5.0", establishmentIMG: "../static/images/establishment4.png", establishmentDescription: "Your newest cafeteria is in town! Visit us at Courtyard Hall and enjoy our wide array of dishes!", establishmentURL: "/establishment4" },
+          ]);
+          
+        // Remove existing establishments
+        await Owner.deleteMany().exec();
+
+        // Insert new establishments
+        await Owner.create([
+            { establishment: "Ate Rica's Bacsilog", username: "AteRica", password: "password1" },
+            { establishment: "Intensitea Blends", username: "InTea", password: "password2" },
+            { establishment: "Dimsum Republic", username: "Dimsum", password: "password3" },
+            { establishment: "Courtyard Cafeteria", username: "Courtyard", password: "password4"},
+          ]);
+        
+        /*
+        await Response.deleteMany().exec();
+
+        // Insert new establishments
+        await Response.create([
+            {"responseContent": "Thank you for your feedback. We're glad you enjoyed your experience with us.", "responseTitle": "Great Milk Tea"},
+            {"responseContent": "We appreciate your feedback. We'll work on improving our service. Thank you for bringing this to our attention.", "responseTitle": "Good Service"},
+            {"responseContent": "Thank you for your kind words! We're thrilled you enjoyed our food. Looking forward to serving you again soon.", "responseTitle": "Excellent Food"},
+            {"responseContent": "We're glad you found our food delicious and affordable! Thank you for your feedback.", "responseTitle": "Affordable and Delicious"},
+            {"responseContent": "We're sorry to hear about your experience. We'll address this issue with our staff. Thank you for letting us know.", "responseTitle": "Terrible Service"},
+            {"responseContent": "Thank you! We're happy you enjoyed our dumplings. Looking forward to seeing you again.", "responseTitle": "Amazing Dumplings"},
+            {"responseContent": "Thank you for your feedback. We're delighted you enjoyed your lunch at our place.", "responseTitle": "Great Lunch Place"},
+            {"responseContent": "We appreciate your feedback! We're constantly adding new flavors to our menu. Stay tuned for more!", "responseTitle": "Nice Variety of Flavors"},
+            {"responseContent": "We're thrilled you enjoyed our sisig! Thank you for your feedback.", "responseTitle": "Flavorful Sisig"},
+            {"responseContent": "Thank you for your feedback. We'll consider your suggestion regarding salad portions.", "responseTitle": "Bigger Salad Portions"},
+            {"responseContent": "We're glad you found our place clean and comfortable! Thank you for your feedback.", "responseTitle": "Clean and Comfortable"},
+            {"responseContent": "Thank you for your feedback. Our steamed buns are indeed a favorite among our customers!", "responseTitle": "Must-Order Steamed Buns"},
+            {"responseContent": "We appreciate your feedback. We'll review our pricing to ensure it aligns with the quality of our food.", "responseTitle": "Pricey for Cafeteria Food"},
+            {"responseContent": "Thank you! We're pleased you had a positive experience with our staff.", "responseTitle": "Friendly Staff, Quick Service"},
+            {"responseContent": "We're glad you enjoyed dining with us! Thank you for your feedback.", "responseTitle": "Good for Group Dining"},
+            {"responseContent": "We're thrilled to hear you'll be back! Looking forward to serving you again soon.", "responseTitle": "Will Be Back"},
+            {"responseContent": "We're sorry to hear about the temperature of your food. We'll ensure it's served hot next time. Thank you for letting us know.", "responseTitle": "Food Was Cold"},
+            {"responseContent": "Thank you for your feedback. We're glad you had an overall good experience.", "responseTitle": "Overall Good Experience"},
+            {"responseContent": "We're sorry to hear about the seating issue. We'll look into this and try to improve. Thank you for your feedback.", "responseTitle": "Limited Seating"},
+            {"responseContent": "Thank you for your feedback. We're thrilled you enjoyed our Xiao Long Bao!", "responseTitle": "Delicious Xiao Long Bao"},
+            {"responseContent": "We apologize for the wait. We'll work on reducing wait times in the future. Thank you for your feedback.", "responseTitle": "Long Wait"},
+            {"responseContent": "We're delighted to be your new favorite milk tea place! Thank you for your feedback.", "responseTitle": "New Favorite Milk Tea Place"},
+            {"responseContent": "Thank you for your feedback. We're glad you appreciate our healthy options.", "responseTitle": "Healthy Options"},
+            {"responseContent": "We're thrilled our dish served as a hangover cure for you! Thank you for your feedback.", "responseTitle": "Perfect Hangover Cure"},
+            {"responseContent": "We're looking forward to having you back! Thank you for your feedback.", "responseTitle": "Will Come Back"}
+        ]);
+        */
+        await Review.deleteMany().exec();
+
+        // Insert new establishments
+        await Review.create([
+
+            { "username": "Guwonie", "establishment": "Intensitea Blends", "reviewRating": "4.8", "reviewTitle": "Great Milk Tea", "reviewContent": "The milk tea was superb!  Highly recommend." },
+            { "username": "jel", "establishment": "Dimsum Republic", "reviewRating": "3.9", "reviewTitle": "Good Service", "reviewContent": "Good service but long wait time." },
+            { "username": "wosheuhands", "establishment": "Courtyard Cafeteria", "reviewRating": "5", "reviewTitle": "Excellent Food", "reviewContent": "Excellent food! A must-try" },
+            { "username": "Saxzee", "establishment": "Ate Rica's Bacsilog", "reviewRating": "4.2", "reviewTitle": "Affordable and Delicious", "reviewContent": "Affordable and delicious." },
+            { "username": "LunaAmber", "establishment": "Intensitea Blends", "reviewRating": "1", "reviewTitle": "Terrible Service", "reviewContent": "Terrible service. Rude staff." },
+            { "username": "Guwonie", "establishment": "Dimsum Republic", "reviewRating": "4.5", "reviewTitle": "Amazing Dumplings", "reviewContent": "Har gow dumplings were amazing!" },
+            { "username": "jel", "establishment": "Courtyard Cafeteria", "reviewRating": "5.0", "reviewTitle": "Great Lunch Place", "reviewContent": "Great place for a quick lunch." },
+            { "username": "Saxzee", "establishment": "Intensitea Blends", "reviewRating": "3.8", "reviewTitle": "Nice Variety of Flavors", "reviewContent": "Nice variety of milk tea flavors." },
+            { "username": "LunaAmber", "establishment": "Ate Rica's Bacsilog", "reviewRating": "4.0", "reviewTitle": "Flavorful Sisig", "reviewContent": "Sisig was flavorful and spicy." },
+            { "username": "Guwonie", "establishment": "Courtyard Cafeteria", "reviewRating": "4.2", "reviewTitle": "Bigger Salad Portions", "reviewContent": "Salad portions could be bigger." },
+            { "username": "jel", "establishment": "Intensitea Blends", "reviewRating": "4.7", "reviewTitle": "Clean and Comfortable", "reviewContent": "Clean and comfortable atmosphere." },
+            { "username": "Saxzee", "establishment": "Dimsum Republic", "reviewRating": "5.0", "reviewTitle": "Must-Order Steamed Buns", "reviewContent": "Steamed buns are a must-order" },
+            { "username": "LunaAmber", "establishment": "Courtyard Cafeteria", "reviewRating": "3.5", "reviewTitle": "Pricey for Cafeteria Food", "reviewContent": "A bit pricey for cafeteria food." },
+            { "username": "Guwonie", "establishment": "Ate Rica's Bacsilog", "reviewRating": "4.9", "reviewTitle": "Friendly Staff, Quick Service", "reviewContent": "Friendly staff, quick service." },
+            { "username": "jel", "establishment": "Dimsum Republic", "reviewRating": "4.3", "reviewTitle": "Good for Group Dining", "reviewContent": "Good for group dining." },
+            { "username": "Saxzee", "establishment": "Intensitea Blends", "reviewRating": "4.0", "reviewTitle": "Will Be Back", "reviewContent": "Will definitely be back to try more." },
+            { "username": "LunaAmber", "establishment": "Courtyard Cafeteria", "reviewRating": "2.5", "reviewTitle": "Food Was Cold", "reviewContent": "Food was a bit cold." },
+            { "username": "Guwonie", "establishment": "Courtyard Cafeteria", "reviewRating": "4.0", "reviewTitle": "Overall Good Experience", "reviewContent": "Overall good experience." },
+            { "username": "jel", "establishment": "Ate Rica's Bacsilog", "reviewRating": "3.7", "reviewTitle": "Limited Seating", "reviewContent": "Limited seating, can get crowded." },
+            { "username": "Saxzee", "establishment": "Dimsum Republic", "reviewRating": "4.5", "reviewTitle": "Delicious Xiao Long Bao", "reviewContent": "Xiao Long Bao soup was delicious." },
+            { "username": "LunaAmber", "establishment": "Intensitea Blends", "reviewRating": "1.0", "reviewTitle": "Long Wait", "reviewContent": "Waited too long for my order." },
+            { "username": "Guwonie", "establishment": "Intensitea Blends", "reviewRating": "5.0", "reviewTitle": "New Favorite Milk Tea Place", "reviewContent": "New favorite milk tea place!" },
+            { "username": "jel", "establishment": "Courtyard Cafeteria", "reviewRating": "4.2", "reviewTitle": "Healthy Options", "reviewContent": "Healthy options available." },
+            { "username": "Saxzee", "establishment": "Ate Rica's Bacsilog", "reviewRating": "4.8", "reviewTitle": "Perfect Hangover Cure", "reviewContent": "Perfect hangover cure!" },
+            { "username": "LunaAmber", "establishment": "Dimsum Republic", "reviewRating": "5.0", "reviewTitle": "Will Come Back", "reviewContent": "Will definitely come back again." }
+        ]);
+        
+        await User.deleteMany().exec();
+
+        const users = [
+            {
+                username: "Guwonie", 
+                password: "password1",
+                bio: "insertbiohere"
+            },
+            {
+                username: "wosheuhands", 
+                password: "password2",
+                bio: "insertbiohere"
+            },
+            {
+                username: "Saxzee", 
+                password: "password3",
+                bio: "insertbiohere"
+            },
+            {
+                username: "LunaAmber", 
+                password: "password4",
+                bio: "insertbiohere"
+            },
+            {
+                username: "jel", 
+                password: "password5",
+                bio: "insertbiohere"
+            },
+        
+        ];
+
+        async function hashPasswords(users) {
+            for (const user of users) {
+                const hashedPassword = await bcrypt.hash(user.password, 4);
+                user.password = hashedPassword;
+            }
+        }
+        await hashPasswords(users)
+            .then(() => {
+                console.log("Passwords hashed successfully");
+                // Now you can proceed with using the updated users array
+            })
+            .catch((error) => {
+                console.error("Error hashing passwords:", error);
+        });
+        
+        await User.create(users);
+        
+        
+
+        //console.log(Establishment.find({}.lean().exec()));
+
+        console.log('Database populated successfully!');
+        mongoose.disconnect();
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+// Call the populate function
+populateDatabase();

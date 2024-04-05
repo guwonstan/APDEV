@@ -1,6 +1,6 @@
 <div class="onereview">
   <div class="onerevpic">
-    <img src={{concat username "_pfp.jpg"}} id="picwidth30" />
+    <img src={{concat "../static/images/" username "_pfp.jpg"}} id="picwidth30" />
   </div>
   <div class="onerevtext">
     <div id="onerevheader">
@@ -11,15 +11,11 @@
         <h1>{{reviewRating}}/5</h1>
       </div>
     </div>
-    <a id="greenlight" href={{concat "/u/" username}}>{{username}}</a>
+    <a id="greenlight" href={{concat "/users/" username}}>{{username}}</a>
     <p>{{reviewContent}}</p>
+    {{#if response}}
+        <h2>Seller's Response</h2>
+        <p>{{response}}</p>
+    {{/if}}
   </div>
-  {{#each responses}}
-    {{#each reviews}}
-      {{#ifEquals responseTitle this.reviewTitle}}
-        {{> ownerresponse}}
-      {{/ifEquals}}
-    {{/each}}
-  {{/each}}
-
 </div>
