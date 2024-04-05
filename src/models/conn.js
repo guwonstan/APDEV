@@ -20,4 +20,3 @@ export function signalHandler() {
 process.on("SIGINT", signalHandler);    
 process.on("SIGTERM", signalHandler);
 process.on("SIGQUIT", signalHandler);
-process.on('SIGKILL', signalHandler);
