@@ -22,6 +22,18 @@ import Review from './src/models/Review.js';
 import Response from './src/models/Response.js';
 
 async function main() {
+    try {
+        await connectToMongo();
+        console.log(`Now connected to MongoDB`);
+
+        app.listen(3000, function() {
+            console.log("Server is running on port 3000");
+        });
+    } catch (err) {
+        console.log('Connection to MongoDB failed: ');
+        process.exit(1);
+    }
+
     const __dirname = dirname(fileURLToPath(import.meta.url)); // directory URL
     const app = express();
     app.use(bodyParser.urlencoded({ extended: true }));
@@ -31,15 +43,6 @@ async function main() {
         return Array.prototype.slice.call(arguments, 0, -1).join('');
     });
 
-    app.listen(process.env.PORT, async function() {
-        try {
-            await connectToMongo();
-            console.log(`Now connected to MongoDB`);
-        } catch (err) {
-            console.log('Connection to MongoDB failed: ');
-            console.error(err);
-        }
-    });
 
     
     const setUserSession = (req, res, next) => {
