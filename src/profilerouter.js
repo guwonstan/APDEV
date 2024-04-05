@@ -17,6 +17,19 @@ profilerouter.put("/editreview", (req, res) => {
   });
 
 
+  profilerouter.post("/createreview", (req, res) => {
+
+    const {username, id, reviewTitle, reviewRating, reviewContent, response} = req.body;
+  
+  
+      res.render("createreview", {
+          title: "Create Review",
+          layout: 'loggedin'
+      });
+      
+    });
+  
+
 /*
 profilerouter.put("/editreview", (req, res) => {
     res.render("frontpage", {

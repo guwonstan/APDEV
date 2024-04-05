@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import session from 'express-session';
+import cookieParser from 'cookie-parser';
 import bcrypt from 'bcrypt';
 import estabRouter from './estabrouter.js';
 import User from './models/User.js';
@@ -141,7 +142,7 @@ router.post('/login', async(req, res) => {
             return;
         }
         console.log('Found user:', user);
-        bcrypt.compare(password, user.password, function(err, result) {
+        await bcrypt.compare(password, user.password, function(err, result) {
             if (err) {
                 // Handle error
                 console.error('Error comparing passwords:', err);
@@ -149,13 +150,17 @@ router.post('/login', async(req, res) => {
             }
         
             if (result) {
-                req.session.isLoggedIn = true;
+                res.cookie('username', username, { maxAge: 86400000 });
                 req.session.username = username;
-                res.status(200).json({});
+                req.session.isLoggedIn = true;
                 console.log('Passwords match');
+                console.log(req.cookies);
+                res.status(200).json({});
+                return;
             } else {
                 res.status(404).json({});
                 console.log('Passwords do not match');
+                return;
             }
         });
     } 
@@ -167,9 +172,11 @@ router.post('/login', async(req, res) => {
     
 });
 
+
 router.get('/logout', (req, res) => {
     req.session.username = null;
     req.session.isLoggedIn = false;
+    res.clearCookie('username');
     res.redirect('/');
 });
 

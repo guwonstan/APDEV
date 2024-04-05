@@ -10,7 +10,9 @@
             {{ userData.bio }}
         </div>
     </div>
-    <input class="edit_button" type="image" src="../static/images/bxs-edit-alt.png" onclick="editProfile()"></input>
+    {{#if own}}
+        <input class="edit_button" type="image" src="../static/images/bxs-edit-alt.png" onclick="editProfile()"></input>
+    {{/if}}
 </div>
 
 <div class="profile_body">

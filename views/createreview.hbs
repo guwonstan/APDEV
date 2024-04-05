@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <link rel = "stylesheet" href = "../cssFiles/Create_Review.css">
+  <link rel = "stylesheet" href=  "../cssFiles/sitebanner.css">
+  <link rel = "stylesheet" href=  "../cssFiles/all.css">
+<title>Create a Review</title>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <form id="log-in" action="/createreview" method = "post">
+        <h2>Write a Review</h2>
+        <div class="input-box">
+            <span class="icon">
+                <ion-icon name="person-outline"></ion-icon>
+            </span>
+            <input type="text" id="title" name="title" required>
+            <label for="title">Title</label>
+        </div>
+        <div class="input-body">
+          <label for="body">Body:</label>
+          <textarea
+            id="body"
+            name="body"
+            rows="3"
+            placeholder="Write your review about the restaurant."
+          ></textarea>
+        </div>
+
+        <div class="input-file">
+          <label for="picture">Picture</label>
+          <br />
+          <input type="file" id="picture" name="picture" accept="image/*" required />
+        </div>
+
+        
+        <div class = "input-rating">
+          <div>Rate Your Experience<br></div>
+          <div class = "star-icon">
+            <input type="radio" name="rating" id="rating1" checked>
+            <label for="rating1" class="star">&#9733;</label>
+            <input type="radio" name="rating" id="rating2">
+            <label for="rating2" class="star">&#9733;</label>
+            <input type="radio" name="rating" id="rating3">
+            <label for="rating3" class="star">&#9733;</label>
+            <input type="radio" name="rating" id="rating4">
+            <label for="rating4" class="star">&#9733;</label>
+            <input type="radio" name="rating" id="rating5">
+            <label for="rating5" class="star">&#9733;</label>
+
+          </div>
+
+        </div>
+
+
+        <button type="submit">Post a Review</button>
+
+    </form>
+
+</div>
+
+
+</body>
+
+
+</html>

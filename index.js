@@ -8,6 +8,7 @@ import express from 'express';
 import exphbs from 'express-handlebars';
 import session from 'express-session';
 import bcrypt from 'bcrypt';
+import cookieParser from 'cookie-parser';
 // Routes modules
 import router from "./src/indexrouter.js";
 
@@ -41,6 +42,21 @@ async function main() {
         }
     });
 
+    
+    const setUserSession = (req, res, next) => {
+        if (req.cookies) {
+            req.session.username = req.cookies.username;
+            req.session.isLoggedIn = true;
+            console.log(req.session.username);
+        }else if (req.session){
+            console.log(req.session.username);
+            res.cookie('username', req.session.username, { maxAge: 86400000 });
+        }
+        next();
+        
+    };
+    app.use(setUserSession);
+    
     app.use(session({
         secret: "secret",
         resave: false,
@@ -64,6 +80,10 @@ async function main() {
             }
         }
     }));
+
+    app.use(cookieParser());
+
+
     app.set("view engine", "hbs");
     // directory for views folder
     app.set("views", "./views");
