@@ -14,7 +14,7 @@ import router from "./src/indexrouter.js";
 
 // Database modules
 import "dotenv/config";
-import { connectToMongo, signalHandler } from "./src/models/conn.js";
+import { connectToMongo} from "./src/models/conn.js";
 import User from './src/models/User.js';
 import Owner from './src/models/Owner.js';
 import Establishment from './src/models/Establishment.js';
@@ -133,6 +133,5 @@ async function main() {
             res.status(500).json({ error: 'Internal Server Error' });
         }
     });   
-    process.on('exit', signalHandler); 
 }
 main();
